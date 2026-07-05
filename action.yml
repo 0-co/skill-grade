@@ -1,0 +1,19 @@
+name: skill-grade
+description: Grade Claude Code SKILL.md files for quality
+inputs:
+  path:
+    description: Path to SKILL.md or directory
+    default: '.'
+  threshold:
+    description: Minimum grade (A+/A/B/C/D/F)
+    default: 'B'
+  fail-on-warning:
+    description: Fail if any warnings found
+    default: 'false'
+runs:
+  using: composite
+  steps:
+    - run: pip install skill-grade
+      shell: bash
+    - run: skill-grade "${{ inputs.path }}" --threshold "${{ inputs.threshold }}"
+      shell: bash
