@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=65"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skill-grade"
+version = "0.1.0"
+description = "Quality grader for Claude Code SKILL.md files. ESLint for AI agent skills."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+keywords = ["claude", "claude-code", "agent-skills", "ai-agents", "linter"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Quality Assurance",
+    "Programming Language :: Python :: 3",
+]
+
+[project.scripts]
+skill-grade = "skill_grade.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["skill_grade*"]
